@@ -35,7 +35,7 @@ const searchSpaces = (searchText: string): Promise<Results> => {
         const addresses = ALL_ADDRESSES.filter(({ address }) =>
           address.indexOf(searchText) !== -1
         );
-        res(addresses);
+        res({addresses});
       } else {
         rej(new Error("Network error"));
       }
