@@ -1,6 +1,6 @@
 import { range, random } from "lodash";
 
-type Results = {
+export type Results = {
   spaces: Space[];
 };
 
@@ -32,7 +32,8 @@ const MAX_TIME_MILLIS = 1000;
 const searchSpaces = (searchText: string): Promise<Results> => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      if (random() > CHANCE_OF_FAILURE) {
+      const randomizer = Math.random() //Replaced the randomizer because it was outputting 0 too frequently.
+      if ( randomizer > CHANCE_OF_FAILURE) {
         const spaces = ALL_PARKING_SPACES.filter(
           ({ name }) => name.indexOf(searchText) !== -1
         );
